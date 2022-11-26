@@ -28,40 +28,4 @@ for i in email: # Boucle sur la liste des éléments trouvés
         i.send_keys("toto@gmail.com") # Envoie le texte "toto@gmaiL.com" dans le champ "email"
         break # Sort de la boucle for
 
-Numeros = driver.find_elements(By.XPATH, "//div[@class='selected-dial-code']")  # Trouve l'élément par son XPATH
-for i in Numeros: # Boucle for pour trouver le bon élément
-    try:
-        i.click() # Clique sur le numéro de téléphone
-        break
-    except:
-        pass
-ListNum = driver.find_elements(By.XPATH, "//span[@class='country-name']") # Trouve l'élément par son XPATH (Liste des pays)
-
-for i in ListNum: # Boucle for pour trouver le bon élément
-    #print(i.text)
-    if (i.text == "France"): # Trouve le pays "France" dans la liste
-        i.click() # Clique sur le pays "France"
-        break
-
-phone = driver.find_element(By.XPATH, "//input[@placeholder='Phone Number']") # Trouve l'élément par son XPATH, avec placeholder
-phone.send_keys("0612345678") # Envoie le texte "0612345678" dans le champ "phone"
-
-CompanyName = driver.find_elements(By.CLASS_NAME, "field") # Trouve l'élément par sa class name
-for i in CompanyName: # Boucle for pour trouver le bon élément
-    #print(i.get_attribute("name"))
-    if i.get_attribute("name") == "companyname": # Trouve l'élément par son nom
-        i.send_keys("Company") # Envoie le texte "Company" dans le champ "companyname"
-        break
-
-#select by label
-inputCountry = driver.find_element(By.ID, "inputCountry") # Trouve l'élément par son ID
-inputCountry.click() # Clique sur le champ "inputCountry"
-
-#get by select
-countries = driver.find_elements(By.XPATH, "//select[@id='inputCountry']/option") # Trouve l'élément par son XPATH
-for i in countries:
-    if i.text == "France": # Trouve le pays "France" dans la liste
-        i.click() # Clique sur le pays "France"
-        inputCountry.click() # Clique sur le champ "inputCountry"
-        break
-sleep(1000)
+sleep(1000) # Pause de 1000 secondes
